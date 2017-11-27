@@ -70,22 +70,22 @@ Hranice okresov sme stiahli z [Geoportál](https://www.geoportal.sk/). Konkrétn
 
 ## Api
 
-** Nájde všetky nabíjacie stanice na Slovensku
+** Nájde všetky nabíjacie stanice na Slovensku **
 `/api/get/all`
 
-** Nájde všetky nabíjacie stanice v okruhu 5 km od bodu [48.233253, 17.248743]
+** Nájde všetky nabíjacie stanice v okruhu 5 km od bodu [48.233253, 17.248743] **
 `/api/get/500/48.233253/17.248743`
 
-** Nájde body záujmu v okruhu 500 m od bodu [48.233253, 17.248743]
+** Nájde body záujmu v okruhu 500 m od bodu [48.233253, 17.248743] **
 `/api/get/amenity/48.233253/17.248743`
 
-** Nájde všetky okresy na Slovensku
+** Nájde všetky okresy na Slovensku **
 `/api/get/districts`
 
-** Nájde všetky nbíjacie stanice v okrese Bratislava I
+** Nájde všetky nbíjacie stanice v okrese Bratislava I **
 `/api/get/from/Bratislava I`
 
-** Nájde body tvoriace hranicu okresu Bratislava I
+** Nájde body tvoriace hranicu okresu Bratislava I **
 `/api/get/boundary/Bratislava I`
 
 ### Response
@@ -93,5 +93,38 @@ Hranice okresov sme stiahli z [Geoportál](https://www.geoportal.sk/). Konkrétn
 Odpoveď na Api volanie je pole s obsahom dát vo formáte JSON obsahujúci všetky potrebné informácie. Dáta k jednej nabíjacej stanici vyzerajú nasledovne:
 
 ```JSON
-[{"properties": {"contact_phone": "+42 1259 236100", "address_line1": "Pilarikova Ulica 5", "address_town": "Bratislava", "is_pay_at_location": false, "connection_current_type": "AC (Three-Phase)", "operator_title": "Tesla Motors (Worldwide)", "operator_url": "http://www.teslamotors.com", "operator_mail": null, "address_postcode": "81103", "address_line2": null, "is_membership_required": true, "connection_power": 11, "operator_address": null, "connection_type_name": null, "number_of_points": 2, "usage_cost": null, "connection_type_title": "Mennekes (Type 2, Tethered Connector) ", "address_title": "Falkensteiner Hotel Bratislava", "connection_voltage": 400, "connection_current_desc": "Alternating Current - Three Phase", "connection_amps": 16}, "geometry": {"coordinates": [17.103715, 48.145909], "type": "Point"}, "type": "Feature"}]
+[
+	{
+		"properties":
+			{
+				"contact_phone": "+42 1259 236100", 
+				"address_line1": "Pilarikova Ulica 5", 
+				"address_town": "Bratislava", 
+				"is_pay_at_location": false, 
+				"connection_current_type": "AC (Three-Phase)", 
+				"operator_title": "Tesla Motors (Worldwide)", 
+				"operator_url": "http://www.teslamotors.com", 
+				"operator_mail": null, 
+				"address_postcode": "81103", 
+				"address_line2": null, 
+				"is_membership_required": true, 
+				"connection_power": 11, 
+				"operator_address": null, 
+				"connection_type_name": null, 
+				"number_of_points": 2, 
+				"usage_cost": null, 
+				"connection_type_title": 
+				"Mennekes (Type 2, Tethered Connector) ", 
+				"address_title": "Falkensteiner Hotel Bratislava", 
+				"connection_voltage": 400, "connection_current_desc": 
+				"Alternating Current - Three Phase", "connection_amps": 16
+			}, 
+		"geometry": 
+			{
+				"coordinates": [17.103715, 48.145909], 
+				"type": "Point"
+			}, 
+		"type": "Feature"
+	}
+]
 ```
