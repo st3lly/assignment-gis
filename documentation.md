@@ -63,31 +63,35 @@ CREATE TABLE charging_stations (
 Dáta sa vkladajú do DB v (`models.py`) v metóde insertDataFromAPI().
 
 ### Open Street Maps
-Ako ďalší zdroj dát sme použili [Open Street Maps](https://www.openstreetmap.org/). Stiahli sme dáta pre celé Slovensko a iportovali do DB použitím nástroja `osm2pgsql`. Tieto dáta sú použité pre body záujmu.
+Ako ďalší zdroj dát sme použili [Open Street Maps](https://www.openstreetmap.org/). Stiahli sme dáta pre celé Slovensko a importovali do DB pomocou nástroja `osm2pgsql`. Tieto dáta sú použité pre body záujmu.
 
 ### Geoportál
-Hranice okresov sme stiahli z [Geoportál](https://www.geoportal.sk/). Konkrétne [https://www.geoportal.sk/files/zbgis/na_stiahnutie/shp/ah_shp_0.zip](https://www.geoportal.sk/files/zbgis/na_stiahnutie/shp/ah_shp_0.zip). Dáta sme naiportovali použitím nástroja `shp2pgsql`.
+Hranice okresov sme stiahli z [Geoportál](https://www.geoportal.sk/). Konkrétne [https://www.geoportal.sk/files/zbgis/na_stiahnutie/shp/ah_shp_0.zip](https://www.geoportal.sk/files/zbgis/na_stiahnutie/shp/ah_shp_0.zip). Dáta sme naimportovali pomocou nástroja `shp2pgsql`.
 
 ## Api
 
-**Find hotels in proximity to coordinates**
+** Nájde všetky nabíjacie stanice na Slovensku
+`/api/get/all`
 
-`GET /search?lat=25346&long=46346123`
+** Nájde všetky nabíjacie stanice v okruhu 5 km od bodu [48.233253, 17.248743]
+`/api/get/500/48.233253/17.248743`
 
-**Find hotels by name, sorted by proximity and quality**
+** Nájde body záujmu v okruhu 500 m od bodu [48.233253, 17.248743]
+`/api/get/amenity/48.233253/17.248743`
 
-`GET /search?name=hviezda&lat=25346&long=46346123`
+** Nájde všetky okresy na Slovensku
+`/api/get/districts`
+
+** Nájde všetky nbíjacie stanice v okrese Bratislava I
+`/api/get/from/Bratislava I`
+
+** Nájde body tvoriace hranicu okresu Bratislava I
+`/api/get/boundary/Bratislava I`
 
 ### Response
 
-API calls return json responses with 2 top-level keys, `hotels` and `geojson`. `hotels` contains an array of hotel data for the sidebar, one entry per matched hotel. Hotel attributes are (mostly self-evident):
+Odpoveď na Api volanie je pole s obsahom dát vo formáte JSON obsahujúci všetky potrebné informácie. Dáta k jednej nabíjacej stanici vyzerajú nasledovne:
+
+```JSON
+[{"properties": {"contact_phone": "+42 1259 236100", "address_line1": "Pilarikova Ulica 5", "address_town": "Bratislava", "is_pay_at_location": false, "connection_current_type": "AC (Three-Phase)", "operator_title": "Tesla Motors (Worldwide)", "operator_url": "http://www.teslamotors.com", "operator_mail": null, "address_postcode": "81103", "address_line2": null, "is_membership_required": true, "connection_power": 11, "operator_address": null, "connection_type_name": null, "number_of_points": 2, "usage_cost": null, "connection_type_title": "Mennekes (Type 2, Tethered Connector) ", "address_title": "Falkensteiner Hotel Bratislava", "connection_voltage": 400, "connection_current_desc": "Alternating Current - Three Phase", "connection_amps": 16}, "geometry": {"coordinates": [17.103715, 48.145909], "type": "Point"}, "type": "Feature"}]
 ```
-{
-  "name": "Modra hviezda",
-  "style": "modern", # cuisine style
-  "stars": 3,
-  "address": "Panska 31"
-  "image_url": "/assets/hotels/652.png"
-}
-```
-`geojson` contains a geojson with locations of all matched hotels and style definitions.
