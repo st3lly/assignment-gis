@@ -22,18 +22,18 @@ Zobrazenie odov záujmu v okruhu 500 metrov od zvolenej nabíjacej stanice
 
 ## Frontend
 
-Frontend aplikácie tvorí statické HTML (`static/templates/index.html`). Hlavná logika frontendu je v (`static/js/mapbox.js`), ktorý komunikuje s API a stará sa o vykreslenie dát do mapy.
+Frontend aplikácie tvorí statické HTML `static/templates/index.html`. Hlavná logika frontendu je v `static/js/mapbox.js`, ktorý komunikuje s API a stará sa o vykreslenie dát do mapy.
 
 ## Backend
 
-Backend aplikácie je vytvorený vo frameworku [Flask](http://flask.pocoo.org/) (python framework). Databázu sme využili PostgreSQL s rozšírením PostGIS. Obsluha API volaní je v súbore (`app.py`) a o komunikáciu s DB sa stará (`models.py`), kde sú jednotlivé queries.
+Backend aplikácie je vytvorený vo frameworku [Flask](http://flask.pocoo.org/) (python framework). Databázu sme využili PostgreSQL s rozšírením PostGIS. Obsluha API volaní je v súbore `app.py` a o komunikáciu s DB sa stará `models.py`, kde sú jednotlivé queries.
 
 ## Dáta
 
 ### Open Carge Map
 Základné dáta pre aplikáciu boli použíte z [Open Charge Map](https://www.openchargemap.org/). Dáta majú dostupné len prostredníctvom API v json formáte. Pre uloženie týchto dát sme si vytvorili nasledovnú tabuľku:
 
-CREATE TABLE charging_stations (
+`CREATE TABLE charging_stations (
 	id							SERIAL PRIMARY KEY,
 	operator_title				text,
 	operator_url				text,
@@ -56,7 +56,7 @@ CREATE TABLE charging_stations (
 	connection_power			integer,
 	connection_current_type		text,
 	connection_current_desc		text
-);
+);`
 
 Dáta sa vkladajú do DB v (`models.py`) v metóde insertDataFromAPI().
 
