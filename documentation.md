@@ -86,7 +86,7 @@ Hranice okresov sme stiahli z [Geoportál](https://www.geoportal.sk/). Konkrétn
 
 `/api/get/districts`
 
-**Nájde všetky nbíjacie stanice v okrese Bratislava I**
+**Nájde všetky nabíjacie stanice v okrese Bratislava I**
 
 `/api/get/from/Bratislava I`
 
