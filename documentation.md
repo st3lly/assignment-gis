@@ -11,13 +11,13 @@ Aplikácia zobrazuje nabájacie stanice pre elektromobily a hybridné automobily
 Vzhľad aplikácie
 ![Screenshot](screenshots/screenshot1.png)
 
-Zobrazenie nabíjacích stanív v okrese Bratislava I
+Zobrazenie nabíjacích staníc v okrese Bratislava I
 ![Screenshot](screenshots/screenshot2.png)
 
 Zobrazenie nabíjacích staníc v okruhu 5 km od zvoleného bodu
 ![Screenshot](screenshots/screenshot3.png)
 
-Zobrazenie odov záujmu v okruhu 500 metrov od zvolenej nabíjacej stanice
+Zobrazenie bodov záujmu v okruhu 500 metrov od zvolenej nabíjacej stanice
 ![Screenshot](screenshots/screenshot4.png)
 
 ## Frontend
@@ -31,7 +31,7 @@ Backend aplikácie je vytvorený vo frameworku [Flask](http://flask.pocoo.org/) 
 ## Dáta
 
 ### Open Charge Map
-Základné dáta o naíjacích staniciach pre aplikáciu boli použíte z [Open Charge Map](https://www.openchargemap.org/). Dáta majú dostupné len prostredníctvom API v json formáte. Pre uloženie týchto dát sme si vytvorili nasledovnú tabuľku:
+Základné dáta o nabíjacích staniciach pre aplikáciu boli použíte z [Open Charge Map](https://www.openchargemap.org/). Dáta majú dostupné len prostredníctvom API v JSON formáte. Pre uloženie týchto dát sme si vytvorili nasledovnú tabuľku:
 
 ```SQL
 CREATE TABLE charging_stations (
@@ -68,7 +68,7 @@ Ako ďalší zdroj dát sme použili [Open Street Maps](https://www.openstreetma
 ### Geoportál
 Hranice okresov sme stiahli z [Geoportál](https://www.geoportal.sk/). Konkrétne [https://www.geoportal.sk/files/zbgis/na_stiahnutie/shp/ah_shp_0.zip](https://www.geoportal.sk/files/zbgis/na_stiahnutie/shp/ah_shp_0.zip). Dáta sme naimportovali pomocou nástroja `shp2pgsql`.
 
-## Api
+## API
 
 **Nájde všetky nabíjacie stanice na Slovensku**
 
@@ -96,7 +96,7 @@ Hranice okresov sme stiahli z [Geoportál](https://www.geoportal.sk/). Konkrétn
 
 ### Response
 
-Odpoveď na Api volanie je pole s obsahom dát vo formáte JSON obsahujúci všetky potrebné informácie. Dáta k jednej nabíjacej stanici vyzerajú nasledovne:
+Odpoveď na API volanie je pole s obsahom dát vo formáte JSON obsahujúci všetky potrebné informácie. Dáta k jednej nabíjacej stanici vyzerajú nasledovne:
 
 ```JSON
 [
