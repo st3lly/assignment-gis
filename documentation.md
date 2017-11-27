@@ -33,7 +33,8 @@ Backend aplikácie je vytvorený vo frameworku [Flask](http://flask.pocoo.org/) 
 ### Open Carge Map
 Základné dáta pre aplikáciu boli použíte z [Open Charge Map](https://www.openchargemap.org/). Dáta majú dostupné len prostredníctvom API v json formáte. Pre uloženie týchto dát sme si vytvorili nasledovnú tabuľku:
 
-`CREATE TABLE charging_stations (
+```SQL
+CREATE TABLE charging_stations (
 	id							SERIAL PRIMARY KEY,
 	operator_title				text,
 	operator_url				text,
@@ -56,7 +57,8 @@ Základné dáta pre aplikáciu boli použíte z [Open Charge Map](https://www.o
 	connection_power			integer,
 	connection_current_type		text,
 	connection_current_desc		text
-);`
+);
+```
 
 Dáta sa vkladajú do DB v (`models.py`) v metóde insertDataFromAPI().
 
