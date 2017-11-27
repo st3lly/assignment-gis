@@ -1,0 +1,111 @@
+html, body {
+   height: 100%;
+   margin: 0;
+   padding: 0;
+}
+
+#wrapper, #wrapper .row {
+   height: 100%;
+   margin-right: 0;
+   margin-left: 0;
+   padding: 0
+}
+
+#content-wrapper {
+  height: 100%;
+  padding: 0;
+}
+
+#sidebar-wrapper {
+  width: 400px;
+  background-color: #777;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-shadow: 2px 0 8px #444;
+  z-index: 1;
+}
+
+h1.title {
+  color: #00B800;
+  font-size: 1.4em;
+  margin: 5px 10px 3px 10px;
+  font-weight: bold;
+}
+
+h1.subtitle {
+  color: #00B800;
+  font-size: 1.9em;
+  margin: 3px 10px 10px 10px;
+  font-weight: bold;
+  border-top: solid 2px #006600;
+  text-transform: uppercase;
+}
+
+
+#sidebar-wrapper .row {
+  padding: 0;
+  height: 0;
+  display: table;
+}
+
+.form-wrapper {
+  padding: 5px 10px 5px 10px !important;
+}
+
+#mapbox {
+  height: 100%;
+  width: 100%;
+  z-index: 0
+}
+
+.box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
+  -webkit-box-shadow: @shadow;
+          box-shadow: @shadow;
+}
+
+div.result {
+  font-size: 1.2em;
+  display: block;
+  padding: 10px;
+  width: 100%;
+  background-color: #4c4c4c;
+  border-bottom: 1px #555 solid;
+  color: #999;
+  cursor: pointer;
+}
+
+div.result:hover {
+  background-color: #555;
+  color: #222;
+}
+
+div.town {
+  text-align: right;
+  font-size: 0.8em;
+}
+
+#results-wraper {
+  width: 100%;
+  overflow-y: auto;
+  height: 600px;
+}
+
+div.popup {
+
+}
+
+div.popup h1{
+  margin: 0 auto;
+  padding: 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  width: 250px;
+}
+
+h2.sub_h {
+  margin: 20px 0 0 0;
+  font-size: 1.4em;
+  padding: 0;
+  font-weight: bold
+}

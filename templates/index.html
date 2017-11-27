@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="Stefan Kadlic">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    
+    <!-- Ionicon -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/font-awesome/css/font-awesome.min.css') }}">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+
+    <!-- Leaflet core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/leaflet/leaflet.css') }}"
+
+    <!-- Leaflet-awesome-markers -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/leaflet-awesome-markers/leaflet.awesome-markers.css') }}">
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div class="row">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper" class="col-lg-2 box-shadow">
+                <div class="row">
+                    <h1 class="title">Charging Stations</h1>
+                    <h1 class="subtitle">Slovakia</h1>
+                </div>
+
+                <div class="row form-wrapper">
+                    <div class="form-check">
+                        <label ><strong>Radius [KM]:</strong></label>
+                        <input id="radius" type="number" class="form-control" min="1" max="200" value="5">
+                    </div>
+                </div>
+
+                <div class="row form-wrapper">
+                    <label for="select_district"><strong>Select district:</strong></label>
+                    <select class="form-control" id="select_district">
+                        <option>-- none --</option>
+                    </select>
+                </div>
+
+                <div class="row form-wrapper">
+                    <button id="reset-btn" type="button" class="btn btn-success">Reset filter</button>
+                </div>
+
+                <div class="row form-wrapper">
+                    <h2 class="sub_h">Results</h2>
+                </div>
+                <div id="results-wraper">
+                        <!-- results -->
+                </div>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="content-wrapper" class="col-lg-10">
+                <div id="mapbox"></div>
+            </div>
+            <!-- /#page-content-wrapper -->
+        </div>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Leaflet -->
+    <script src="{{ url_for('static', filename='vendor/leaflet/leaflet.js') }}"></script>
+
+    <!-- Bootstrap -->
+    <!-- <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script> -->
+
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+
+    <!-- Leaflet-awesome-markers -->
+    <script src="{{ url_for('static', filename='vendor/leaflet-awesome-markers/leaflet.awesome-markers.js') }}"></script>
+    
+    <script>
+    var access_token = '{{ access_token }}'
+    </script>
+
+    <script src="{{ url_for('static', filename='js/mapbox.js') }}"></script>
+
+</body>
+</html>

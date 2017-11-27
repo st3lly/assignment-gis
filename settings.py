@@ -1,0 +1,6 @@
+MAPBOX_ACCESS_TOKEN = 'pk.eyJ1Ijoic3QzbGx5IiwiYSI6ImNqOTVjOGc0czBjaXEycWxoeXhxYmw0d3EifQ.crFsY6yjqW8rJHqByIcV3Q'
+DB_HOST = 'localhost'
+DB_NAME = 'gis'
+DB_USER = 'postgres'
+DB_PASSWORD = 'postgres'
+DB_PORT = '5432'
