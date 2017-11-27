@@ -1,39 +1,68 @@
-*This is a documentation for a fictional project, just to show you what I expect. Notice a few key properties:*
-- *no cover page, really*
-- *no copy&pasted assignment text*
-- *no code samples*
-- *concise, to the point, gets me a quick overview of what was done and how*
-- *I don't really care about the document length*
-- *I used links where appropriate*
+## Úvod
 
-# Overview
+Aplikácia zobrazuje nabájacie stanice pre elektromobily a hybridné automobily v rámci Slovenskej Republiky na mape. Najdôležitejšie funkcie:
+- filtrovanie podľa typu nabíjacích staníc (farebne odlíšené a rozdelené do vrstiev)
+- zobrazenie staníc podľa okresu
+- zobrazenie staníc vo zvolenej vzdialenosti od vybraného bodu na mape
+- zobrazenie bodov záujmu v okruhu 500 metrov od zvolenej nabíjacej stanice
 
-This application shows hotels in Bratislava on a map. Most important features are:
-- search by proximity to my current location
-- search by hotel name
-- intelligent ordering - by proximity and by hotel features
-- hotels on the map are color coded by their quality assigned in stars (standard)
+## Screenshots
 
-This is it in action:
+Vzhľad aplikácie
+![Screenshot](screenshots/screenshot1.png)
 
-![Screenshot](screenshot.png)
+Zobrazenie nabíjacích stanív v okrese Bratislava I
+![Screenshot](screenshots/screenshot2.png)
 
-The application has 2 separate parts, the client which is a [frontend web application](#frontend) using mapbox API and mapbox.js and the [backend application](#backend) written in [Rails](http://rubyonrails.org/), backed by PostGIS. The frontend application communicates with backend using a [REST API](#api).
+Zobrazenie nabíjacích staníc v okruhu 5 km od zvoleného bodu
+![Screenshot](screenshots/screenshot3.png)
 
-# Frontend
+Zobrazenie odov záujmu v okruhu 500 metrov od zvolenej nabíjacej stanice
+![Screenshot](screenshots/screenshot4.png)
 
-The frontend application is a static HTML page (`index.html`), which shows a mapbox.js widget. It is displaying hotels, which are mostly in cities, thus the map style is based on the Emerald style. I modified the style to better highlight main sightseeing points, restaurants and bus stops, since they are all important when selecting a hotel. I also highlighted rails tracks to assist in finding a quiet location.
+## Frontend
 
-All relevant frontend code is in `application.js` which is referenced from `index.html`. The frontend code is very simple, its only responsibilities are:
-- detecting user's location, using the standard [web location API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation)
-- displaying the sidebar panel with hotel list and filtering controls, driving the user interaction and calling the appropriate backend APIs
-- displaying geo features by overlaying the map with a geojson layer, the geojson is provided directly by backend APIs
+Frontend aplikácie tvorí statické HTML (`static/templates/index.html`). Hlavná logika frontendu je v (`static/js/mapbox.js`), ktorý komunikuje s API a stará sa o vykreslenie dát do mapy.
 
-# Backend
+## Backend
 
-The backend application is written in Ruby on Rails and is responsible for querying geo data, formatting the geojson and data for the sidebar panel.
+Backend aplikácie je vytvorený vo frameworku [Flask](http://flask.pocoo.org/) (python framework). Databázu sme využili PostgreSQL s rozšírením PostGIS. Obsluha API volaní je v súbore (`app.py`) a o komunikáciu s DB sa stará (`models.py`), kde sú jednotlivé queries.
 
-## Data
+## Dáta
+
+### Open Carge Map
+Základné dáta pre aplikáciu boli použíte z [Open Charge Map](https://www.openchargemap.org/). Dáta majú dostupné len prostredníctvom API v json formáte. Pre uloženie týchto dát sme si vytvorili nasledovnú tabuľku:
+
+CREATE TABLE charging_stations (
+	id							SERIAL PRIMARY KEY,
+	operator_title				text,
+	operator_url				text,
+	operator_mail				text,
+	is_pay_at_location			boolean,
+	is_membership_required		boolean,
+	usage_cost					text,
+	address_title				text,
+	address_line1				text,
+	address_line2				text,
+	address_town				text,
+	address_postcode			text,
+	geom						geography,
+	contact_phone				text,
+	number_of_points			integer,
+	connection_type_title		text,
+	connection_type_name		text,
+	connection_amps				integer,
+	connection_voltage			integer,
+	connection_power			integer,
+	connection_current_type		text,
+	connection_current_desc		text
+);
+
+Dáta sa vkladajú do DB v (`models.py`) v metóde insertDataFromAPI().
+
+### Open Street Maps
+
+### Geoportál
 
 Hotel data is coming directly from Open Street Maps. I downloaded an extent covering whole Slovakia (around 1.2GB) and imported it using the `osm2pgsql` tool into the standard OSM schema in WGS 84 with hstore enabled. To speedup the queries I created an index on geometry column (`way`) in all tables. The application follows standard Rails conventions and all queries are placed in models inside `app/models`, mostly in `app/models/hotel.rb`. GeoJSON is generated by using a standard `st_asgeojson` function, however some postprocessing is necessary (in `app/controllers/search_controller.rb`) in order to merge all hotels into a single geojson.
 

@@ -46,7 +46,6 @@ class DatabaseModel(object):
 			'properties', json_build_object(
 				'operator_title', operator_title,
 				'operator_url', operator_url,
-				'operator_address', operator_address,
 				'operator_mail', operator_mail,
 				'is_pay_at_location', is_pay_at_location,
 				'is_membership_required', is_membership_required,
@@ -138,7 +137,6 @@ class DatabaseModel(object):
 			'properties', json_build_object(
 				'operator_title', s.operator_title,
 				'operator_url', s.operator_url,
-				'operator_address', s.operator_address,
 				'operator_mail', s.operator_mail,
 				'is_pay_at_location', s.is_pay_at_location,
 				'is_membership_required', s.is_membership_required,

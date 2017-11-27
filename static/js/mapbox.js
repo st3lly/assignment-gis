@@ -476,6 +476,10 @@ function onMapClick(e) {
     removeStationsFromMap();
     getData('/api/get/' + $('#radius').val() * 1000 + '/' + e.latlng.lat + '/' + e.latlng.lng);
 
+    $('#select_district').each(function() {
+        $(this)[0].selectedIndex=0;
+    });
+
     if(positionMarker) {
         positionMarker.remove();
     }
