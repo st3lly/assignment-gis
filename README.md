@@ -10,8 +10,8 @@ Build a map-based application, which lets the user see geo-based data on a map a
 
 Fill in (either in English, or in Slovak):
 
-**Application description**: `Jednoduchá aplikácia, ktorá zobrazuje nabíjacie stanice pre elektromobily a hybridné automobily na Slovensku. Aplikácia tiež umožňuje zobrazenie nabíjacích staníc v rámci vybraného okresu a alebo v určitom okruhu od zvolenej polohy na mape. Po kliknutí na nabíjaciu stanicu na mape je možné zobraziť body záujmu (občerstvenie, kaviarne, bary ...) v okruhu 500 m od nabíjacej stanice. Mapa je rozdelená do niekoľkých vrstiev, pričom každá vrstva obsahuje nabíjacie stanice určitého typu. Používateľ si môže vybrať, ktoré vrstvy budú zobrazené.`
+**Application description**: Jednoduchá aplikácia, ktorá zobrazuje nabíjacie stanice pre elektromobily a hybridné automobily na Slovensku. Aplikácia tiež umožňuje zobrazenie nabíjacích staníc v rámci vybraného okresu a alebo v určitom okruhu od zvolenej polohy na mape. Po kliknutí na nabíjaciu stanicu na mape je možné zobraziť body záujmu (občerstvenie, kaviarne, bary ...) v okruhu 500 m od nabíjacej stanice. Mapa je rozdelená do niekoľkých vrstiev, pričom každá vrstva obsahuje nabíjacie stanice určitého typu. Používateľ si môže vybrať, ktoré vrstvy budú zobrazené.
 
-**Data source**: `[Open Street Maps](https://www.openstreetmap.org/), [Open Charge Map](https://www.openchargemap.org/), [Geoportál](https://www.geoportal.sk/)`
+**Data source**: [Open Street Maps](https://www.openstreetmap.org/), [Open Charge Map](https://www.openchargemap.org/), [Geoportál](https://www.geoportal.sk/)
 
-**Technologies used**: `[Flask](http://flask.pocoo.org/), [PostGIS](http://postgis.net/), [MapBox](https://www.mapbox.com/), [Leaflet](http://leafletjs.com/), [jQuery](https://jquery.com/), [Bootstrap](https://getbootstrap.com/)`
+**Technologies used**: [Flask](http://flask.pocoo.org/), [PostGIS](http://postgis.net/), [MapBox](https://www.mapbox.com/), [Leaflet](http://leafletjs.com/), [jQuery](https://jquery.com/), [Bootstrap](https://getbootstrap.com/)
