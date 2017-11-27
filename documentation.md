@@ -70,22 +70,22 @@ Hranice okresov sme stiahli z [Geoportál](https://www.geoportal.sk/). Konkrétn
 
 ## Api
 
-** Nájde všetky nabíjacie stanice na Slovensku **
+**Nájde všetky nabíjacie stanice na Slovensku**
 `/api/get/all`
 
-** Nájde všetky nabíjacie stanice v okruhu 5 km od bodu [48.233253, 17.248743] **
+**Nájde všetky nabíjacie stanice v okruhu 5 km od bodu [48.233253, 17.248743]**
 `/api/get/500/48.233253/17.248743`
 
-** Nájde body záujmu v okruhu 500 m od bodu [48.233253, 17.248743] **
+**Nájde body záujmu v okruhu 500 m od bodu [48.233253, 17.248743]**
 `/api/get/amenity/48.233253/17.248743`
 
-** Nájde všetky okresy na Slovensku **
+**Nájde všetky okresy na Slovensku**
 `/api/get/districts`
 
-** Nájde všetky nbíjacie stanice v okrese Bratislava I **
+**Nájde všetky nbíjacie stanice v okrese Bratislava**
 `/api/get/from/Bratislava I`
 
-** Nájde body tvoriace hranicu okresu Bratislava I **
+**Nájde body tvoriace hranicu okresu Bratislava I**
 `/api/get/boundary/Bratislava I`
 
 ### Response
